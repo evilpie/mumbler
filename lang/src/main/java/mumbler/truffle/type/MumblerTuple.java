@@ -29,6 +29,14 @@ public class MumblerTuple implements Iterable<Object> {
         return this.elements.length;
     }
 
+    public Object first() {
+        return this.elements[0];
+    }
+
+    public Object second() {
+        return this.elements[1];
+    }
+
     @Override
     public Iterator<Object> iterator() {
         List<Object> list = asList(this.elements);
