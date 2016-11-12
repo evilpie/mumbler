@@ -14,7 +14,7 @@ import mumbler.truffle.node.builtin.list.CarBuiltinNodeFactory;
 import mumbler.truffle.node.builtin.list.CdrBuiltinNodeFactory;
 import mumbler.truffle.node.builtin.list.ConsBuiltinNodeFactory;
 import mumbler.truffle.node.builtin.list.ListBuiltinNodeFactory;
-import mumbler.truffle.node.builtin.tuple.TupleBuiltinNodeFactory;
+import mumbler.truffle.node.builtin.tuple.TupleBuiltinNode;
 import mumbler.truffle.node.builtin.relational.EqualBuiltinNodeFactory;
 import mumbler.truffle.node.builtin.relational.GreaterThanBuiltinNodeFactory;
 import mumbler.truffle.node.builtin.relational.LessThanBuiltinNodeFactory;
@@ -97,8 +97,7 @@ public class MumblerContext {
                 createBuiltinFunction(SleepBuiltinNodeFactory.getInstance(),
                         virtualFrame));
         virtualFrame.setObject(frameDescriptor.addFrameSlot("tuple"),
-                createBuiltinFunction(TupleBuiltinNodeFactory.getInstance(),
-                        virtualFrame));
+                TupleBuiltinNode.createBuiltinFunction(virtualFrame));
     }
 
     /**

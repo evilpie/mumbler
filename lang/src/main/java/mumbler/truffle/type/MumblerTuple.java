@@ -16,36 +16,18 @@ public class MumblerTuple implements Iterable<Object> {
         this.elements = null;
     }
 
-    private MumblerTuple(Object first, Object second) {
-        this.elements = new Object[2];
-        this.elements[0] = first;
-        this.elements[1] = second;
+    private MumblerTuple(Object[] elements) {
+        this.elements = elements;
     }
 
-    public static MumblerTuple tuple(Object first, Object second) {
-        return new MumblerTuple(first, second);
-    }
 
-/*
-    @SafeVarargs
-    public static <T> MumblerList<T> list(T... objs) {
-        return list(asList(objs));
+    public static MumblerTuple tuple(Object[] objs) {
+        return new MumblerTuple(objs);
     }
-
-    public static <T> MumblerList<T> list(List<T> objs) {
-        @SuppressWarnings("unchecked")
-        MumblerList<T> l = (MumblerList<T>) EMPTY;
-        for (int i=objs.size()-1; i>=0; i--) {
-            l = l.cons(objs.get(i));
-        }
-        return l;
-    }
-*/
 
     public long size() {
         return this.elements.length;
     }
-
 
     @Override
     public Iterator<Object> iterator() {
